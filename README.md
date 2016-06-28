@@ -31,14 +31,14 @@ RequestHandler implements the Message Handler Interface and overrides onRecieve 
   
   ```
   Features: 
-  1) SocketServer hanldles incoming client connections using threads. Each time a new client connects or open the socket connection it creates a new thraed.
-  2) Includes a server Listening Thread which is looking for incoming client connections and whenever it sees a new connection it creates a new ConnectionThread 
+  1. SocketServer hanldles incoming client connections using threads. Each time a new client connects or open the socket connection it creates a new thraed.
+  2. Includes a server Listening Thread which is looking for incoming client connections and whenever it sees a new connection it creates a new ConnectionThread 
      and let it handle the communication between sever and client.
-  3) This can let many incoming threads keep coming in while an existing client is communicating with server.
+  3. This can let many incoming threads keep coming in while an existing client is communicating with server.
   
   Possible Extension:
-  1) To include Gui interface using Jwing and Crate a Server JPanel which controls the starting of server and another button to initiate a connection as client with server.
-  2) Along with GUI SocketServer can have its statusBoard of connected clients, so make the class observable and all other clients being connected as
+  1. To include Gui interface using Jwing and Crate a Server JPanel which controls the starting of server and another button to initiate a connection as client with server.
+  2. Along with GUI SocketServer can have its statusBoard of connected clients, so make the class observable and all other clients being connected as
     as observers which can update all clients whenever a new client connects and corrosponding client can be displayed on server status board.
     
   
