@@ -2,11 +2,13 @@
 Sockets project is a simpler implementation of Client Server interaction using Java Sockets.
 
 Created a server at port 5556
+```
   SocketServer server = new SocketServer(5556, new RequestHandler());
-
+```
 Created a client communicating to Server at port # 5556
+```
   ClientEmulator client = new ClientEmulator(InetAddress.getLocalHost(), 5556);
-  
+```
 Send an xml string to Server
   client.sendMessageToServer(str);
   
