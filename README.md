@@ -11,20 +11,23 @@ Send an xml string to Server
   client.sendMessageToServer(str);
   
 RequestHandler implements the Message Handler Interface and overrides onRecieve method 
-class RequestHandler implements MessageHandler {
-    @Override
-    public void onReceive(Connection connection, String message) {
-      InputSource newstream = new InputSource(new StringReader(message));
-			Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(newstream);
-			if(getElementValue("Command",doc.getDocumentElement()).equals("") || getElementValue("Command",doc.getDocumentElement())==null){
-				message  = message + " Unknown Command";
-				System.out.println("Unknown Command");
-			}else{
-				System.out.println(getElementValue("Command",doc.getDocumentElement()));
-      }
-    }
-  }
+```
+
+	class RequestHandler implements MessageHandler {
+	    @Override
+	    public void onReceive(Connection connection, String message) {
+	      InputSource newstream = new InputSource(new StringReader(message));
+				Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(newstream);
+				if(getElementValue("Command",doc.getDocumentElement()).equals("") || getElementValue("Command",doc.getDocumentElement())==null){
+					message  = message + " Unknown Command";
+					System.out.println("Unknown Command");
+				}else{
+					System.out.println(getElementValue("Command",doc.getDocumentElement()));
+	      }
+	    }
+	  }
   
+  ```
   Features: 
   1) SocketServer hanldles incoming client connections using threads. Each time a new client connects or open the socket connection it creates a new thraed.
   2) Includes a server Listening Thread which is looking for incoming client connections and whenever it sees a new connection it creates a new ConnectionThread 
